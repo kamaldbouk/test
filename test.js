@@ -1,3 +1,4 @@
+// this is 0% written by ai
 // lets dtaw
 function drawRectangleInCircle(rectLength) {
     if (typeof rectLength !== "number" || rectLength < 2) {
