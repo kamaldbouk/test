@@ -1,33 +1,31 @@
-// this code calc the area of a tringle (typo intended)
-function calcAreaTringle(base, Hieght) {  
-    return (base * Hieght) / 2; 
-}
-
-// THE below function prints hello world message
-function PrintMessage() {
-    let messageTxt = "Hello World"; 
-    console.log(messageTxt)
-}
-
-// count items in a arry (grammar + typo in array)
-function COUNTITEMS(arry) { 
-    let CounterNum = 0;
-    for (let i = 0; i < arry.length; i++) {
-        CounterNum++
+// lets dtaw
+function drawRectangleInCircle(rectLength) {
+    if (typeof rectLength !== "number" || rectLength < 2) {
+        console.log("Invalid input");
+        return;
     }
-    return CounterNum
-}
 
-// the folowing function add two nums togethr
-function addNUMS(num1, NumTwo) {
-    return num1 + NumTwo
-}
+    let rect_length = rectLength;
+    let CircleRadius = Math.ceil(rect_length);
+    let RECTWIDTH = rect_length;
+    let rectHeight = Math.floor(rect_length / 2);
 
-// check if numb is odd or even number
-function chekOddEven(NUM) {  
-    if (NUM % 2 === 0) {
-        return "Even"
-    } else {
-        return "Odd"
+    for (let row= -CircleRadius; row <= CircleRadius; row++) {
+        let lineStr = "";
+        for (let col = -CircleRadius; col <= CircleRadius; col++) {
+            let isInsideCircle = row * row + col * col <= CircleRadius * CircleRadius;
+            let inside_rectangle = 
+                Math.abs(row) <= rectHeight / 2 &&
+                Math.abs(col) <= RECTWIDTH / 2;
+            
+            if (inside_rectangle) {
+                lineStr += "*";
+            } else if (isInsideCircle) {
+                lineStr += "*";
+            } else {
+                lineStr += " ";
+            }
+        }
+        console.log(lineStr);
     }
 }
